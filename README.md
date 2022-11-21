@@ -1,6 +1,5 @@
 # Minority Africa Second Stage QA Assessment
-The following assessment will evaluate your understanding of the QA Process and the tools. It will also
-evaluate your communication skills.
+The following assessment will evaluate your understanding of the QA Process and the tools the tools and your ability to assess risk.
 
 ## Instructions 
 1. Start first by forking this repo, all work should be committed to the forked repo.
