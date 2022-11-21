@@ -3,7 +3,7 @@ The following assessment will evaluate your understanding of the QA Process and 
 evaluate your communication skills.
 
 ## Instructions 
-1. Start first by forking this repo, all work should be committed to this repo.
+1. Start first by forking this repo, all work should be committed to the forked repo.
 2. Inspect the One API here [https://the-one-api.dev](https://the-one-api.dev)
 3. Explore the documentation here [https://the-one-api.dev/documentation](https://the-one-api.dev/documentation)
 4. Some Useful Resources here [https://www.freecodecamp.org/news/how-to-test-and-play-with-web-apis-the-easy-way-with-postman/#part-5-authenticating-requests-to-the-lord-of-the-rings-api-with-an-api-key](https://www.freecodecamp.org/news/how-to-test-and-play-with-web-apis-the-easy-way-with-postman/#part-5-authenticating-requests-to-the-lord-of-the-rings-api-with-an-api-key)
