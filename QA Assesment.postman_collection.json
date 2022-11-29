@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "37d4bbc5-8026-453c-bb18-31de03713495",
+		"name": "QA Assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22615482"
+	},
+	"item": [
+		{
+			"name": "tests books",
+			"item": [
+				{
+					"name": "bOOKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"The first book is available\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The Fellowship Of The Ring\");\r",
+									"});\r",
+									"pm.test(\"The second book is available\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The Two Towers\");\r",
+									"});\r",
+									"pm.test(\"The Third book is available\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The Return Of The King\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://the-one-api.dev/v2/book",
+							"protocol": "https",
+							"host": [
+								"the-one-api",
+								"dev"
+							],
+							"path": [
+								"v2",
+								"book"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "5cf5805fb53e011a64671582",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find a book",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\", \"_id\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://the-one-api.dev/v2/book?_id=5cf5805fb53e011a64671582",
+							"protocol": "https",
+							"host": [
+								"the-one-api",
+								"dev"
+							],
+							"path": [
+								"v2",
+								"book"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "5cf5805fb53e011a64671582"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book chapter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://the-one-api.dev/v2/chapter",
+							"protocol": "https",
+							"host": [
+								"the-one-api",
+								"dev"
+							],
+							"path": [
+								"v2",
+								"chapter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find chapter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"chapterName\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://the-one-api.dev/v2/chapter?book=5cf58077b53e011a64671583&",
+							"protocol": "https",
+							"host": [
+								"the-one-api",
+								"dev"
+							],
+							"path": [
+								"v2",
+								"chapter"
+							],
+							"query": [
+								{
+									"key": "book",
+									"value": "5cf58077b53e011a64671583"
+								},
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/movie",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"movie"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"_id\",\"name\" );\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/movie?_id=5cd95395de30eff6ebccde5d",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"movie"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "5cd95395de30eff6ebccde5d"
+								},
+								{
+									"key": "characters",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie quote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"_id\", \"dialog\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/quote?movie=5cd95395de30eff6ebccde5d",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"quote"
+							],
+							"query": [
+								{
+									"key": "character",
+									"value": "5cd99d4bde30eff6ebccfe9e",
+									"disabled": true
+								},
+								{
+									"key": "movie",
+									"value": "5cd95395de30eff6ebccde5d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "character quote",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/quote",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"quote"
+							],
+							"query": [
+								{
+									"key": "character",
+									"value": "5cd99d4bde30eff6ebccfe9e",
+									"disabled": true
+								},
+								{
+									"key": "movie",
+									"value": "5cd95395de30eff6ebccde5d",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "name:asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie characters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/character?gender=male",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"character"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "name:asc",
+									"disabled": true
+								},
+								{
+									"key": "gender",
+									"value": "male"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"_id\", \"gender\", \"spouse\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Sdp1c_l8kvjGK4Q6FZkj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OneAPI}}/character?_id=5cd99d4bde30eff6ebccfbce",
+							"host": [
+								"{{OneAPI}}"
+							],
+							"path": [
+								"character"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "5cd99d4bde30eff6ebccfbce"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
